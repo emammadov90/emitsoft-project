@@ -383,6 +383,17 @@
                   <input type="tel" class="form-control" ng-model="order.phone" placeholder="Your number" required>
                 </div>
                 <div class="col-12">
+                  <label class="form-label">Your Selected Products</label>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center" ng-repeat="item in cart">
+                        {{item.name}} – x{{item.quantity}}
+                        <span>{{item.price * item.quantity | currency:'€'}}</span>
+                        </li>
+                    </ul>
+                    <div class="mt-2 text-end"><strong>Total:</strong> {{getTotal() | currency:'€'}} </div>
+                </div>
+
+                <div class="col-12">
                   <button type="submit" class="btn btn-brand">Submit Order</button>
                 </div>
                 <div class="col-12" ng-if="showSuccessMessage">
@@ -438,6 +449,7 @@ angular.module('ShopApp', ['ngSanitize']).controller('ShopCtrl', function($scope
   ];
 
   $scope.cart = [];
+
   $scope.order = {
     firstName: '',
     lastName: '',
@@ -445,6 +457,7 @@ angular.module('ShopApp', ['ngSanitize']).controller('ShopCtrl', function($scope
     address: '',
     phone: ''
   };
+
   $scope.showSuccessMessage = false;
 
   $scope.addToCart = function(product) {
@@ -474,11 +487,16 @@ angular.module('ShopApp', ['ngSanitize']).controller('ShopCtrl', function($scope
       return;
     }
 
+    // Add cart items and total to the order
+    $scope.order.cartItems = angular.copy($scope.cart);
+    $scope.order.total = $scope.getTotal();
+
+    // For now: log the order (tomorrow: send to Node.js backend)
     console.log("Order submitted:", $scope.order);
-    console.log("Cart contents:", $scope.cart);
 
     $scope.showSuccessMessage = true;
 
+    // Reset form and cart
     $scope.order = {
       firstName: '',
       lastName: '',
