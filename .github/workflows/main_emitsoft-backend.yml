@@ -28,13 +28,14 @@ jobs:
         run: npm install
 
       - name: Zip backend folder for deployment
-        run: zip -r ../release.zip ./
+        run: zip -r release.zip ./
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: node-app
-          path: release.zip
+           name: node-app
+           path: backend/release.zip
+
 
   deploy:
     runs-on: ubuntu-latest
