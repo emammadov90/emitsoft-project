@@ -49,16 +49,10 @@ jobs:
       - name: Unzip artifact
         run: unzip release.zip
 
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_5788E1B7B60A4422943F9BC738C4878B }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_8B86695D2CEA477E97F46921B5FA73FE }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F5FEF05B4338458AB078F31C7931A108 }}
-
-      - name: Deploy to Azure Web App
+      - name: Login to Azure using publish profile
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'emitsoft-backend'
           slot-name: 'Production'
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: .
