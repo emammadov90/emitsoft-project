@@ -443,7 +443,7 @@
     $scope.showSuccessMessage = false;
 
     // Upload products
-    $http.get('http://localhost:3000/api/products')
+    $http.get('https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net/api/products')
       .then(function(response) {
         $scope.products = response.data.map(product => {
           product.quantity = 1;
@@ -495,7 +495,7 @@
         total_amount: $scope.getTotal()
       };
 
-      $http.post('http://localhost:3000/api/orders', orderData)
+      $http.post('https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net/api/orders', orderData)
         .then(function(response) {
           $scope.showSuccessMessage = true;
           $scope.order = {
@@ -520,7 +520,7 @@
     $scope.contactError = false;
 
     $scope.submitContact = function() {
-      $http.post('http://localhost:3000/api/contact', $scope.contact)
+      $http.post('https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net/api/contact', $scope.contact)
         .then(function(response) {
           $scope.contactSuccess = true;
           $scope.contactError = false;
