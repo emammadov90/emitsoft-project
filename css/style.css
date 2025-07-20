@@ -41,6 +41,11 @@ a:hover {
     color: var(--brand);
 }
 
+ul.list-unstyled {
+  list-style: none;
+  padding-left: 0;
+}
+
 section {
     padding-top: 80px;
     padding-bottom: 80px;
@@ -132,6 +137,16 @@ section {
 .top-nav span,
 .top-nav i {
     vertical-align: middle;
+}
+
+.top-nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.top-nav a:hover {
+  color: white;
+  text-decoration: none;
 }
 
 .navbar {
@@ -264,7 +279,7 @@ text-align: center;}
 }
 
 .shop-post .tag {
-    background-color: #ff4d29;
+    background-color: #67b23f;
 	font-size: 16px;
 }
 
