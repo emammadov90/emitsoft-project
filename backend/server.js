@@ -16,15 +16,18 @@ const allowedOrigins = [
 
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin) return callback(null, true); // Postman kimi tools üçün
+    if (!origin) return callback(null, true); // Postman, local tools
     if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
+      callback(null, true);
     } else {
-      return callback(new Error('Not allowed by CORS'));
+      callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type'],
+  credentials: false
 }));
+
 
 app.use(express.json());
 
