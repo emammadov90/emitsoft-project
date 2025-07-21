@@ -300,6 +300,6 @@ app.post('/api/contact', (req, res) => {
 });
 
 // ===== START SERVER =====
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(process.env.PORT || 8080, '0.0.0.0', () => {
+  console.log(`Server is running on port ${process.env.PORT || 8080}`);
 });
