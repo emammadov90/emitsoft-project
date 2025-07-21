@@ -273,17 +273,25 @@
 				<h3>Your Cart ({{cart.length}} items)</h3>
 				  <ul class="list-group">
 					<li class="list-group-item d-flex justify-content-between align-items-center" ng-repeat="item in cart">
+					<div>
 						{{item.name}} – x{{item.quantity}}
-						<span>{{item.price * item.quantity | currency:'€'}}</span>
+					</div>
+					<div>
+						<span class="me-3">{{item.price * item.quantity | currency:'€'}}</span>
+						<button type="button" class="btn btn-sm btn-danger" ng-click="removeFromCart(item)">x</button>
+					</div>
 					</li>
 				  </ul>
-                <div class="mt-3 text-end">
-                    <strong>Total:</strong> {{getTotal() | currency:'€'}}
-                </div>
-                <div class="col-12">
-                    <button class="btn btn-brand" data-bs-toggle="modal" data-bs-target="#orderModal" ng-disabled="cart.length === 0">Place your order</button>
-                </div>                
-			</div>			
+					<div class="mt-3 text-end">
+						<strong>Total:</strong> {{getTotal() | currency:'€'}}
+					</div>
+					<div class="col-12 mt-2">
+						<button class="btn btn-brand" data-bs-toggle="modal" data-bs-target="#orderModal" ng-disabled="cart.length === 0">Place your order</button>
+					</div>
+			</div>
+
+			
+				
 		</div>
 	</section>
 
@@ -401,15 +409,16 @@
                   <label class="form-label">Your Selected Products</label>
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center" ng-repeat="item in cart">
-                        {{item.name}} – x{{item.quantity}}
-                        <span>{{item.price * item.quantity | currency:'€'}}</span>
+							{{item.name}} – x{{item.quantity}}
+							<span>{{item.price * item.quantity | currency:'€'}}</span>
+							<button type="button" class="btn btn-sm btn-danger ms-2" ng-click="removeFromCart(item)">×</button>
                         </li>
                     </ul>
                     <div class="mt-2 text-end"><strong>Total:</strong> {{getTotal() | currency:'€'}} </div>
                 </div>
 
                 <div class="col-12">
-                  <button type="submit" class="btn btn-brand">Submit Order</button>
+                  <button type="submit" class="btn btn-brand" ng-disabled="cart.length === 0">Submit Order</button>
                 </div>
                 <div class="col-12" ng-if="showSuccessMessage">
                     <div class="alert alert-success mt-3" role="alert">
@@ -470,6 +479,15 @@
       }
       product.quantity = 1;
     };
+	
+	// Remove from cart
+    $scope.removeFromCart = function(item) {
+    const index = $scope.cart.indexOf(item);
+    if (index > -1) {
+		$scope.cart.splice(index, 1);
+		}
+	};
+
 
     // Total price
     $scope.getTotal = function() {

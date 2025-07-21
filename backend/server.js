@@ -4,6 +4,7 @@ const cors = require('cors');
 const path = require('path');
 const nodemailer = require('nodemailer');
 const app = express();
+const bcrypt = require('bcrypt');
 const port = process.env.PORT || 3000;
 
 // Middleware
@@ -216,12 +217,26 @@ app.put('/api/products/:id', (req, res) => {
 // ===== LOGIN ENDPOINT =====
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
+
   db.query('SELECT * FROM admins WHERE username = ? LIMIT 1', [username], (err, results) => {
-    if (err) return res.status(500).send('Server error');
-    if (results.length === 0 || password !== results[0].password_hash) {
+    if (err) {
+      console.error('Database error during login:', err);
+      return res.status(500).send('Server error');
+    }
+
+    if (results.length === 0) {
       return res.status(401).send('Invalid credentials');
     }
-    res.status(200).send('Login successful');
+
+    const hashedPassword = results[0].password_hash;
+
+    bcrypt.compare(password, hashedPassword, (err, match) => {
+      if (err || !match) {
+        return res.status(401).send('Invalid credentials');
+      }
+
+      res.status(200).send('Login successful');
+    });
   });
 });
 
