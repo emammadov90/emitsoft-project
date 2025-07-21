@@ -7,8 +7,25 @@ const app = express();
 const bcrypt = require('bcrypt');
 const port = process.env.PORT || 3000;
 
-// Middleware
-app.use(cors());
+// CORS Config
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://127.0.0.1:8080',
+  'https://ambitious-beach-0f51a4403.2.azurestaticapps.net'
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true); // Postman kimi tools üçün
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
+
 app.use(express.json());
 
 // Email transporter using Gmail
