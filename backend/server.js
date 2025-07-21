@@ -4,7 +4,7 @@ const cors = require('cors');
 const path = require('path');
 const nodemailer = require('nodemailer');
 const app = express();
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 const port = process.env.PORT || 3000;
 
 // Middleware
