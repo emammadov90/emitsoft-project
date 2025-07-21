@@ -68,16 +68,20 @@
     $scope.loginData = {};
     $scope.loginError = false;
 
+    // Dynamic backend URL (local or Azure)
+    const apiBase = window.location.hostname.includes('localhost') 
+      ? 'http://localhost:3000' 
+      : 'https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net';
+
     $scope.login = function() {
-      // If login credentials are wrong
       if (!$scope.loginData.username || !$scope.loginData.password) {
         console.warn('⚠️ Username or password is empty.');
         $scope.loginError = true;
         return;
       }
 
-      // POST request
-      $http.post('https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net/api/login', {
+      // POST request with dynamic API URL
+      $http.post(`${apiBase}/api/login`, {
         username: $scope.loginData.username,
         password: $scope.loginData.password
       }).then(function(response) {
