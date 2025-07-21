@@ -3,8 +3,8 @@ const mysql = require('mysql2');
 const cors = require('cors');
 const path = require('path');
 const nodemailer = require('nodemailer');
-const app = express();
 const bcrypt = require('bcrypt');
+const app = express();
 const port = process.env.PORT || 3000;
 
 // CORS Config
@@ -14,21 +14,22 @@ const allowedOrigins = [
   'https://ambitious-beach-0f51a4403.2.azurestaticapps.net'
 ];
 
-app.use(cors({
+const corsOptions = {
   origin: function (origin, callback) {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
+    if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
     }
   },
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
-  credentials: false
-}));
-
-
+  credentials: false,
+  optionsSuccessStatus: 200
+};
+// MIDDLEWARE
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 app.use(express.json());
 
 // Email transporter using Gmail
