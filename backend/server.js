@@ -213,10 +213,10 @@ app.put('/api/products/:id', (req, res) => {
   });
 });
 
-
 // ===== LOGIN ENDPOINT =====
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
+  console.log('Login attempt:', username); // ⬅️ burada
 
   db.query('SELECT * FROM admins WHERE username = ? LIMIT 1', [username], (err, results) => {
     if (err) {
@@ -225,16 +225,24 @@ app.post('/api/login', (req, res) => {
     }
 
     if (results.length === 0) {
+      console.log('No user found');
       return res.status(401).send('Invalid credentials');
     }
 
     const hashedPassword = results[0].password_hash;
 
     bcrypt.compare(password, hashedPassword, (err, match) => {
-      if (err || !match) {
+      if (err) {
+        console.error('Error comparing passwords:', err);
+        return res.status(500).send('Server error');
+      }
+
+      if (!match) {
+        console.log('Incorrect password');
         return res.status(401).send('Invalid credentials');
       }
 
+      console.log('Login successful');
       res.status(200).send('Login successful');
     });
   });
