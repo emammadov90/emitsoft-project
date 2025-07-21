@@ -4,7 +4,7 @@ const cors = require('cors');
 const path = require('path');
 const nodemailer = require('nodemailer');
 const app = express();
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const port = process.env.PORT || 3000;
 
 // Middleware
@@ -216,16 +216,16 @@ app.put('/api/products/:id', (req, res) => {
 // ===== LOGIN ENDPOINT =====
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
-  console.log('Login attempt:', username); // ⬅️ burada
+  console.log('Login attempt for:', username);
 
   db.query('SELECT * FROM admins WHERE username = ? LIMIT 1', [username], (err, results) => {
     if (err) {
-      console.error('Database error during login:', err);
+      console.error('❌ Database error during login:', err);
       return res.status(500).send('Server error');
     }
 
     if (results.length === 0) {
-      console.log('No user found');
+      console.log('❌ No user found with that username');
       return res.status(401).send('Invalid credentials');
     }
 
@@ -233,16 +233,18 @@ app.post('/api/login', (req, res) => {
 
     bcrypt.compare(password, hashedPassword, (err, match) => {
       if (err) {
-        console.error('Error comparing passwords:', err);
-        return res.status(500).send('Server error');
+        console.error('❌ bcrypt error:', err);
+        return res.status(500).send('Encryption error');
       }
 
+      console.log('🔍 Password match result:', match);
+
       if (!match) {
-        console.log('Incorrect password');
+        console.log('❌ Incorrect password');
         return res.status(401).send('Invalid credentials');
       }
 
-      console.log('Login successful');
+      console.log('✅ Login successful for user:', username);
       res.status(200).send('Login successful');
     });
   });

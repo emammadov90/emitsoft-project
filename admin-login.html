@@ -61,26 +61,36 @@
     </form>
   </div>
 
-  <!-- AngularJS Script -->
-  <script>
+<!-- AngularJS Script -->
+<script>
   const app = angular.module('AdminLoginApp', []);
   app.controller('LoginController', function($scope, $http) {
     $scope.loginData = {};
     $scope.loginError = false;
 
     $scope.login = function() {
+      // If login credentials are wrong
+      if (!$scope.loginData.username || !$scope.loginData.password) {
+        console.warn('⚠️ Username or password is empty.');
+        $scope.loginError = true;
+        return;
+      }
+
+      // POST request
       $http.post('https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net/api/login', {
         username: $scope.loginData.username,
         password: $scope.loginData.password
-      }).then(function(response) {        
+      }).then(function(response) {
+        console.log('✅ Login successful:', response);
         localStorage.setItem('isLoggedIn', 'true');
         window.location.href = 'admin-panel.html';
       }, function(error) {
+        console.error('❌ Login failed:', error);
         $scope.loginError = true;
       });
     };
   });
-  </script>
+</script>
 
 </body>
 </html>
