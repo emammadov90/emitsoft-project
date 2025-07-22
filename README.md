@@ -118,4 +118,4 @@ EMITSOFT is a web application that allows users to browse software products, add
 ## Author
 
 **Elvin Mammadov**  
-Final Exam Project – EMITSOFT Software Platform
+Final Exam Project - EMITSOFT Software Platform
