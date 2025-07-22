@@ -80,10 +80,6 @@ app.delete('/api/orders/:id', (req, res) => {
   });
 });
 
-// Static file serving
-app.use(express.static(path.join(__dirname, '..')));
-app.use('/images', express.static(path.join(__dirname, '..', 'images')));
-
 // MySQL connection
 const db = mysql.createConnection({
   host: 'emitsoft-dbserv01.mysql.database.azure.com',
