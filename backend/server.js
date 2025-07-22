@@ -32,6 +32,11 @@ app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 app.use(express.json());
 
+// Root path
+app.get('/', (req, res) => {
+  res.send('EMITSOFT Backend is running successfully.');
+});
+
 // Email transporter using Gmail
 // Orders transporter
 const ordersTransporter = nodemailer.createTransport({
