@@ -28,17 +28,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-sanitize.js"></script>
 
-    <script>
-		function handleAdminClick() {
-          if (sessionStorage.getItem('isLoggedIn') === 'true') {
-            window.open('admin-panel.html', '_blank');
-          } else {
-            window.open('admin-login.html', '_blank');
-          }
-		} 
-    </script>
-
-
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70" ng-app="ShopApp" ng-controller="ShopCtrl">
@@ -50,9 +39,6 @@
                 <div class="col-auto">
                     <p> <i class='bx bxs-envelope'></i><a href="mailto:info@emitsoft.de"> info@emitsoft.de</a>
                     <p> <i class='bx bxs-phone-call'></i> +49 123 456 7890</p>
-                </div>
-                <div class="col-auto">
-                    <a href="#" onclick="handleAdminClick()" >Admin Panel</a>
                 </div>
                 <div class="col-auto social-icons">
                     <a href="https://www.facebook.com" target="_blank"><i class='bx bxl-facebook'></i></a>
@@ -100,8 +86,7 @@
                 <div class="row">
                     <div class="col-12 text-center text-white">
                         <h6 class="text-white text-uppercase">Trusted IT & Software Provider</h6>
-                        <h1 class="display-3 my-4">Our job is to make <br /> your projects successful</h1>
-                        <a href="#about" class="btn btn-brand">Get Started</a>
+                        <h1 class="display-3 my-4">Our job is to make <br /> your projects successful</h1>                        
                         <a href="#services" class="btn btn-outline-light ms-3">Explore Services</a>
                     </div>
                 </div>
@@ -110,10 +95,9 @@
         <div class="slide slide2">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-lg-10 offset-lg-1 text-white">
+                    <div class="col-12 text-center text-white">
                         <h6 class="text-white text-uppercase">Reliable. Affordable. Professional</h6>
-                        <h1 class="display-3 my-4">Your Partner for<br />IT Services & Licensing</h1>
-                        <a href="#about" class="btn btn-brand">Get Started</a>
+                        <h1 class="display-3 my-4">YOUR PARTNER FOR <br /> LICENSED SOFTWARE PRODUCTS</h1>                        
                         <a href="#shop" class="btn btn-outline-light ms-3">Browse Products</a>
                     </div>
                 </div>
