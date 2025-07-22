@@ -30,6 +30,7 @@ EMITSOFT is a web application that allows users to browse software products, add
 - **Backend Root**: [https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net](https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net)
 - **Products API**: [/api/products](https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net/api/products)
 - **Orders API**: [/api/orders](https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net/api/orders)
+- **Admin Panel Access**: [https://ambitious-beach-0f51a4403.2.azurestaticapps.net/admin-login.html](https://ambitious-beach-0f51a4403.2.azurestaticapps.net/admin-login.html)
 
 ---
 
