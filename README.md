@@ -95,6 +95,14 @@ EMITSOFT is a web application that allows users to browse software products, add
 
 ---
 
+## Email Handling
+
+- Emails from the contact and order forms are processed via secure SMTP using authenticated Outlook and Gmail accounts.
+  - orders_emitsoft@outlook.com for order confirmations
+  - emitsoftinfo@gmail.com for contact inquiries
+
+---
+
 ## Deployment & CI/CD
 
 - GitHub Actions automatically builds and deploys:
