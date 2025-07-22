@@ -97,8 +97,8 @@ EMITSOFT is a web application that allows users to browse software products, add
 
 ## Email Handling
 
-- Emails from the contact and order forms are processed via secure SMTP using authenticated Outlook and Gmail accounts.
-  - orders_emitsoft@outlook.com for order confirmations
+- Emails from the contact and order forms are sent via secure SMTP using authenticated Outlook and Gmail accounts. Confirmation emails are sent to both the admin and the user. 
+  - emitsoftorders@gmail.com for order confirmations
   - emitsoftinfo@gmail.com for contact inquiries
 
 ---
