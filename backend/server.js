@@ -27,6 +27,7 @@ const corsOptions = {
   credentials: false,
   optionsSuccessStatus: 200
 };
+
 // MIDDLEWARE
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
