@@ -37,7 +37,6 @@ app.get('/', (req, res) => {
   res.send('EMITSOFT Backend is running successfully.');
 });
 
-// Email transporter using Gmail
 // Orders transporter
 const ordersTransporter = nodemailer.createTransport({
   service: 'gmail',
@@ -86,20 +85,15 @@ app.delete('/api/orders/:id', (req, res) => {
 });
 
 // MySQL connection
-const db = mysql.createConnection({
+const db = mysql.createPool({
   host: 'emitsoft-dbserv01.mysql.database.azure.com',
   user: 'emitsoft_dbadmin',
   password: 'pUTXR]8NtrL3D#fji010a!*G+=5@7I',
   database: 'emitsoftdb',
-  ssl: { rejectUnauthorized: true }
-});
-
-db.connect((err) => {
-  if (err) {
-    console.error('Database connection failed:', err);
-  } else {
-    console.log('Connected to the MySQL database.');
-  }
+  ssl: { rejectUnauthorized: true },
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
 });
 
 // Helper: Format order details as HTML
@@ -197,10 +191,14 @@ app.post('/api/orders', (req, res) => {
 // ===== PRODUCTS ENDPOINTS =====
 app.get('/api/products', (req, res) => {
   db.query('SELECT * FROM products', (err, results) => {
-    if (err) return res.status(500).send('Failed to retrieve products.');
+    if (err) {
+      console.error('❌ Failed to retrieve products:', err.message);
+      return res.status(500).send('Failed to retrieve products.');
+    }
     res.status(200).json(results);
   });
 });
+
 
 app.post('/api/products', (req, res) => {
   const { name, price, image, description } = req.body;
