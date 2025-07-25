@@ -68,10 +68,12 @@
     $scope.loginData = {};
     $scope.loginError = false;
 
-    // Dynamic backend URL (local or Azure)
-    const apiBase = window.location.hostname.includes('localhost') 
-      ? 'http://localhost:3000' 
-      : 'https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net';
+    // Dynamic backend URL (local, emitsoft.de or Azure)
+    const apiBase = window.location.hostname.includes('localhost')
+      ? 'http://localhost:3000'
+      : (window.location.hostname.includes('emitsoft.de')
+          ? 'https://api.emitsoft.de'
+          : 'https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net');
 
     $scope.login = function() {
       if (!$scope.loginData.username || !$scope.loginData.password) {
@@ -85,11 +87,11 @@
         username: $scope.loginData.username,
         password: $scope.loginData.password
       }).then(function(response) {
-        console.log('✅ Login successful:', response);
+        console.log('Login successful:', response);
         localStorage.setItem('isLoggedIn', 'true');
         window.location.href = 'admin-panel.html';
       }, function(error) {
-        console.error('❌ Login failed:', error);
+        console.error('Login failed:', error);
         $scope.loginError = true;
       });
     };
