@@ -12,6 +12,8 @@ const allowedOrigins = [
   'http://localhost:3000',
   'http://127.0.0.1:8080',
   'https://ambitious-beach-0f51a4403.2.azurestaticapps.net'
+  'https://emitsoft.de',
+  'https://www.emitsoft.de'
 ];
 
 const corsOptions = {
