@@ -154,8 +154,15 @@
       $scope.newProduct = {};
       $scope.orders = [];
 
+      // Dynamic backend URL (local, emitsoft.de or Azure)
+      const apiBase = window.location.hostname.includes('localhost')
+        ? 'http://localhost:3000'
+        : (window.location.hostname.includes('emitsoft.de')
+            ? 'https://api.emitsoft.de'
+            : 'https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net');
+
       $scope.loadProducts = function() {
-        $http.get('https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net/api/products')
+        $http.get(`${apiBase}/api/products`)
           .then(function(response) {
             $scope.products = response.data.map(function(p) {
               p.description = $sce.trustAsHtml(p.description);
@@ -165,7 +172,7 @@
       };
 
       $scope.loadOrders = function () {
-        $http.get('https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net/api/orders')
+        $http.get(`${apiBase}/api/orders`)
           .then(function (response) {
             $scope.orders = response.data;
           }, function (error) {
@@ -193,7 +200,7 @@
           confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
           if (result.isConfirmed) {
-            $http.delete('https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net/api/orders/' + id)
+            $http.delete(`${apiBase}/api/orders/` + id)
               .then(function () {
                 Swal.fire('Deleted!', 'Order deleted.', 'success');
                 $scope.loadOrders();
@@ -207,7 +214,7 @@
 
       $scope.addProduct = function() {
         $scope.newProduct.price = parseFloat($scope.newProduct.price.toString().replace(/\s/g, ''));
-        $http.post('https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net/api/products', $scope.newProduct)
+        $http.post(`${apiBase}/api/products`, $scope.newProduct)
           .then(function() {
             Swal.fire({
               icon: 'success',
@@ -234,7 +241,7 @@
           confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
           if (result.isConfirmed) {
-            $http.delete('https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net/api/products/' + id)
+            $http.delete(`${apiBase}/api/products/` + id)
               .then(function() {
                 Swal.fire('Deleted!', 'Product deleted.', 'success');
                 $scope.loadProducts();
@@ -263,7 +270,7 @@
         // Ensure price is numeric and valid
         $scope.editingProduct.price = parseFloat($scope.editingProduct.price.toString().replace(/\s/g, ''));
 
-        $http.put('https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net/api/products/' + id, $scope.editingProduct)
+        $http.put(`${apiBase}/api/products/` + id, $scope.editingProduct)
           .then(function() {
             Swal.fire({
               icon: 'success',
@@ -283,7 +290,7 @@
       $scope.loadProducts();
       $scope.loadOrders();
     });
-  </script>
+</script>
 
   <footer>
     <div class="footer-top text-center">
