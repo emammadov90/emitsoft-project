@@ -45,7 +45,9 @@ EMITSOFT is a web application that allows users to browse software products, add
 ### **Admin Panel Access**
 - **Custom Domain:** [https://www.emitsoft.de/admin-login.html](https://www.emitsoft.de/admin-login.html)
 - **Azure:** [https://ambitious-beach-0f51a4403.2.azurestaticapps.net/admin-login.html](https://ambitious-beach-0f51a4403.2.azurestaticapps.net/admin-login.html)
+
   **Login credentials will be provided during the exam.**
+
 ---
 
 ## Tech Stack
