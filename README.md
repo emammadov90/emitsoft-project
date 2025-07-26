@@ -49,6 +49,12 @@ EMITSOFT is a web application that allows users to browse software products, add
   **Login credentials will be provided during the exam.**
 
 ---
+## Figma Prototype
+
+The design prototype of the website is available on Figma:
+
+[Open Figma Prototype](https://www.figma.com/proto/wciULZbcZm9WCLORmYurTS/Emitsoft-Website-Prototype?node-id=0-1&t=jq4M38D9JJJvUNQA-1)
+---
 
 ## Tech Stack
 
