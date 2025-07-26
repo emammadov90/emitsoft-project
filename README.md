@@ -27,7 +27,7 @@ EMITSOFT is a web application that allows users to browse software products, add
 ## Live URLs
 
 ### **Frontend**
-- **Primary (Custom Domain):** [https://emitsoft.de](https://emitsoft.de)
+- **Primary (Custom Domain):** [https://www.emitsoft.de](https://www.emitsoft.de)
 - **Azure (Fallback):** [https://ambitious-beach-0f51a4403.2.azurestaticapps.net](https://ambitious-beach-0f51a4403.2.azurestaticapps.net)
 
 ### **Backend Root**
@@ -43,7 +43,7 @@ EMITSOFT is a web application that allows users to browse software products, add
 - **Azure:** [https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net/api/orders](https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net/api/orders)
 
 ### **Admin Panel Access**
-- **Custom Domain:** [https://emitsoft.de/admin-login.html](https://emitsoft.de/admin-login.html)
+- **Custom Domain:** [https://www.emitsoft.de/admin-login.html](https://www.emitsoft.de/admin-login.html)
 - **Azure:** [https://ambitious-beach-0f51a4403.2.azurestaticapps.net/admin-login.html](https://ambitious-beach-0f51a4403.2.azurestaticapps.net/admin-login.html)
 
 ---
