@@ -46,6 +46,8 @@ EMITSOFT is a web application that allows users to browse software products, add
 - **Custom Domain:** [https://www.emitsoft.de/admin-login.html](https://www.emitsoft.de/admin-login.html)
 - **Azure:** [https://ambitious-beach-0f51a4403.2.azurestaticapps.net/admin-login.html](https://ambitious-beach-0f51a4403.2.azurestaticapps.net/admin-login.html)
 
+  **Login credentials will be provided during the exam.**
+
 ---
 
 ## Tech Stack
@@ -126,6 +128,34 @@ EMITSOFT is a web application that allows users to browse software products, add
 - Deployment occurs on every push to the `main` branch.
 - Node dependencies are installed before backend deployment.
 - Environment configuration is handled by Azure App Settings and GitHub Secrets.
+
+---
+
+## Database Screenshots
+
+### 1. Admins Table
+
+**Structure (SHOW COLUMNS):**
+![Admins Table Structure](https://www.emitsoft.de/docs/admins-columns.png)
+
+**Data (SELECT * FROM):**
+![Admins Table Data](https://www.emitsoft.de/docs/admins-data.png)
+
+### 2. Orders Table
+
+**Structure (SHOW COLUMNS):**
+![Orders Table Structure](https://www.emitsoft.de/docs/orders-columns.png)
+
+**Data (SELECT * FROM):**
+![Orders Table Data](https://www.emitsoft.de/docs/orders-data.png)
+
+### 3. Products Table
+
+**Structure (SHOW COLUMNS):**
+![Products Table Structure](https://www.emitsoft.de/docs/products-columns.png)
+
+**Data (SELECT * FROM):**
+![Products Table Data](https://www.emitsoft.de/docs/products-data.png)
 
 ---
 
