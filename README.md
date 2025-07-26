@@ -26,11 +26,25 @@ EMITSOFT is a web application that allows users to browse software products, add
 
 ## Live URLs
 
-- **Frontend**: [https://ambitious-beach-0f51a4403.2.azurestaticapps.net](https://ambitious-beach-0f51a4403.2.azurestaticapps.net)
-- **Backend Root**: [https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net](https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net)
-- **Products API**: [/api/products](https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net/api/products)
-- **Orders API**: [/api/orders](https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net/api/orders)
-- **Admin Panel Access**: [https://ambitious-beach-0f51a4403.2.azurestaticapps.net/admin-login.html](https://ambitious-beach-0f51a4403.2.azurestaticapps.net/admin-login.html)
+### **Frontend**
+- **Primary (Custom Domain):** [https://www.emitsoft.de](https://www.emitsoft.de)
+- **Azure (Fallback):** [https://ambitious-beach-0f51a4403.2.azurestaticapps.net](https://ambitious-beach-0f51a4403.2.azurestaticapps.net)
+
+### **Backend Root**
+- **Primary (Custom Domain):** [https://api.emitsoft.de](https://api.emitsoft.de)
+- **Azure (Fallback):** [https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net](https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net)
+
+### **Products API**
+- **Custom Domain:** [https://api.emitsoft.de/api/products](https://api.emitsoft.de/api/products)
+- **Azure:** [https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net/api/products](https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net/api/products)
+
+### **Orders API**
+- **Custom Domain:** [https://api.emitsoft.de/api/orders](https://api.emitsoft.de/api/orders)
+- **Azure:** [https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net/api/orders](https://emitsoft-backend-hwhmbvcsc0bfgdd8.westeurope-01.azurewebsites.net/api/orders)
+
+### **Admin Panel Access**
+- **Custom Domain:** [https://www.emitsoft.de/admin-login.html](https://www.emitsoft.de/admin-login.html)
+- **Azure:** [https://ambitious-beach-0f51a4403.2.azurestaticapps.net/admin-login.html](https://ambitious-beach-0f51a4403.2.azurestaticapps.net/admin-login.html)
 
 ---
 
