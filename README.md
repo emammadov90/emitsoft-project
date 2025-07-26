@@ -139,8 +139,6 @@ EMITSOFT is a web application that allows users to browse software products, add
 **Data (SELECT * FROM):**
 ![Admins Table Data](https://www.emitsoft.de/docs/admins-data.png)
 
----
-
 ### 2. Orders Table
 
 **Structure (SHOW COLUMNS):**
@@ -148,8 +146,6 @@ EMITSOFT is a web application that allows users to browse software products, add
 
 **Data (SELECT * FROM):**
 ![Orders Table Data](https://www.emitsoft.de/docs/orders-data.png)
-
----
 
 ### 3. Products Table
 
