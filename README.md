@@ -51,8 +51,9 @@ EMITSOFT is a web application that allows users to browse software products, add
 ---
 ## Figma Prototype
 
-The design prototype of the website is available on Figma:
+The design prototype of the website is available on Figma:  
 [Open Figma Prototype](https://www.figma.com/proto/wciULZbcZm9WCLORmYurTS/Emitsoft-Website-Prototype?node-id=0-1&t=jq4M38D9JJJvUNQA-1)
+
 **Note:** In the prototype, the counter section displays static placeholders ("N").  
 > On the live website, the numbers dynamically animate when the page loads.
 
